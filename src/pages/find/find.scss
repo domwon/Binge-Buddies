@@ -1,0 +1,19 @@
+page-find {
+    .good {
+        color: map-get($map: $colors, $key: secondary);
+    }
+    .ok {
+        color: map-get($map: $colors, $key: light);
+    }
+    .poor {
+        color: map-get($map: $colors, $key: primary);
+    }
+
+    ion-avatar img  {
+        width:100% !important;
+        height : 100% !important;
+        max-width: 75px !important;  //any size
+        max-height: 75px !important; //any size
+    }
+
+}
