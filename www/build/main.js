@@ -201,13 +201,13 @@ var PreferencesPage = (function () {
         this.episode = {
             upper: 2,
             lower: -2,
-            upperPlus: '',
-            lowerPlus: ''
+            upperPlus: ' ',
+            lowerPlus: ' '
         };
         this.duration = {
             upper: 2,
             lower: 0,
-            upperPlus: ''
+            upperPlus: ' '
         };
         this.preferencesCompleted = false;
         if (localStorage.getItem('preferencesCompleted') == 'true') {
@@ -298,21 +298,21 @@ var PreferencesPage = (function () {
     };
     PreferencesPage.prototype.savePreferences = function () {
         var _this = this;
+        this.preferences = {
+            meFood: [this.meFoodMeals, this.meFoodSnacks, this.meFoodNone],
+            buddyFood: [this.buddyFoodMeals, this.buddyFoodSnacks, this.buddyFoodNone],
+            meDrink: [this.meDrinksAlc, this.meDrinksReg, this.meDrinksNone],
+            buddyDrink: [this.buddyDrinksAlc, this.buddyDrinksReg, this.buddyDrinksNone],
+            distance: [this.distance],
+            meTalking: [this.meTalkingYes, this.meTalkingNo],
+            buddyTalking: [this.buddyTalkingYes, this.buddyTalkingNo],
+            mePhone: [this.mePhoneYes, this.mePhoneNo],
+            buddyPhone: [this.buddyPhoneYes, this.buddyPhoneNo],
+            episode: [this.episode.upper, this.episode.lower, this.episode.upperPlus, this.episode.lowerPlus],
+            duration: [this.duration.upper, this.duration.lower, this.duration.lowerPlus],
+            availability: [this.avaMorning, this.avaAfternoon, this.avaEvening, this.avaNight]
+        };
         if (this.filledOut()) {
-            this.preferences = {
-                meFood: [this.meFoodMeals, this.meFoodSnacks, this.meFoodNone],
-                buddyFood: [this.buddyFoodMeals, this.buddyFoodSnacks, this.buddyFoodNone],
-                meDrink: [this.meDrinksAlc, this.meDrinksReg, this.meDrinksNone],
-                buddyDrink: [this.buddyDrinksAlc, this.buddyDrinksReg, this.buddyDrinksNone],
-                distance: [this.distance],
-                meTalking: [this.meTalkingYes, this.meTalkingNo],
-                buddyTalking: [this.buddyTalkingYes, this.buddyTalkingNo],
-                mePhone: [this.mePhoneYes, this.mePhoneNo],
-                buddyPhone: [this.buddyPhoneYes, this.buddyPhoneNo],
-                episode: [this.episode.upper, this.episode.lower, this.episode.upperPlus, this.episode.lowerPlus],
-                duration: [this.duration.upper, this.duration.lower, this.duration.lowerPlus],
-                availability: [this.avaMorning, this.avaAfternoon, this.avaEvening, this.avaNight]
-            };
             this.callback = this.navParams.get("callback");
             this.callback(this.preferences).then(function () {
                 _this.navCtrl.pop();
@@ -326,8 +326,10 @@ var PreferencesPage = (function () {
         }
     };
     PreferencesPage.prototype.filledOut = function () {
+        console.log(this.preferences);
         for (var prop in this.preferences) {
-            if (this.preferences[prop].filter(function (v) { return v; }).length < 0) {
+            console.log(prop + this.preferences[prop].filter(function (v) { return v; }).length);
+            if (this.preferences[prop].filter(function (v) { return v; }).length < 1) {
                 return false;
             }
         }

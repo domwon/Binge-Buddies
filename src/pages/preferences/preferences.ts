@@ -41,13 +41,13 @@ export class PreferencesPage {
   episode: any = {
     upper: 2,
     lower: -2,
-    upperPlus: '',
-    lowerPlus: ''
+    upperPlus: ' ',
+    lowerPlus: ' '
   };
   duration: any = {
     upper: 2,
     lower: 0,
-    upperPlus: ''
+    upperPlus: ' '
   };
   avaMorning: false;
   avaAfternoon: false;
@@ -168,21 +168,22 @@ export class PreferencesPage {
 
   savePreferences () {
 
+    this.preferences = {
+      meFood: [this.meFoodMeals, this.meFoodSnacks, this.meFoodNone],
+      buddyFood: [this.buddyFoodMeals, this.buddyFoodSnacks, this.buddyFoodNone],
+      meDrink: [this.meDrinksAlc, this.meDrinksReg, this.meDrinksNone],
+      buddyDrink: [this.buddyDrinksAlc, this.buddyDrinksReg, this.buddyDrinksNone],
+      distance: [this.distance],
+      meTalking: [this.meTalkingYes, this.meTalkingNo],
+      buddyTalking: [this.buddyTalkingYes, this.buddyTalkingNo],
+      mePhone: [this.mePhoneYes, this.mePhoneNo],
+      buddyPhone: [this.buddyPhoneYes, this.buddyPhoneNo],
+      episode: [this.episode.upper, this.episode.lower, this.episode.upperPlus, this.episode.lowerPlus],
+      duration: [this.duration.upper, this.duration.lower, this.duration.lowerPlus],
+      availability: [this.avaMorning, this.avaAfternoon, this.avaEvening, this.avaNight]
+    };
     if (this.filledOut()) {
-      this.preferences = {
-        meFood: [this.meFoodMeals, this.meFoodSnacks, this.meFoodNone],
-        buddyFood: [this.buddyFoodMeals, this.buddyFoodSnacks, this.buddyFoodNone],
-        meDrink: [this.meDrinksAlc, this.meDrinksReg, this.meDrinksNone],
-        buddyDrink: [this.buddyDrinksAlc, this.buddyDrinksReg, this.buddyDrinksNone],
-        distance: [this.distance],
-        meTalking: [this.meTalkingYes, this.meTalkingNo],
-        buddyTalking: [this.buddyTalkingYes, this.buddyTalkingNo],
-        mePhone: [this.mePhoneYes, this.mePhoneNo],
-        buddyPhone: [this.buddyPhoneYes, this.buddyPhoneNo],
-        episode: [this.episode.upper, this.episode.lower, this.episode.upperPlus, this.episode.lowerPlus],
-        duration: [this.duration.upper, this.duration.lower, this.duration.lowerPlus],
-        availability: [this.avaMorning, this.avaAfternoon, this.avaEvening, this.avaNight]
-      };
+      
       this.callback = this.navParams.get("callback");
       this.callback(this.preferences).then(() => {
         this.navCtrl.pop();
@@ -197,10 +198,13 @@ export class PreferencesPage {
   }
 
   filledOut() { // Loop through preferences return true if they are all defined
+    console.log(this.preferences);
     for(var prop in this.preferences) {
-      if (this.preferences[prop].filter(v => v).length < 0) {
+      console.log(prop + this.preferences[prop].filter(v => v).length);
+      if (this.preferences[prop].filter(v => v).length < 1) {
         return false;
       }
+      
     }
     return true;
   }
