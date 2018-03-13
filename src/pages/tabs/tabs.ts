@@ -13,6 +13,7 @@ export class TabsPage {
   tab2Root = MessagesPage;
   tab3Root = ProfilePage;
 
+  
   constructor() {
 
   }

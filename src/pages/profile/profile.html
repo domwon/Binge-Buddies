@@ -16,12 +16,12 @@
 <ion-content padding>
   <ion-card>
     <ion-avatar>
-      <img src="../assets/imgs/chris.jpeg" class="circle-pic">
+      <img src="./assets/imgs/chris.jpeg" class="circle-pic">
     </ion-avatar>
     <ion-item>
       <h2 text-center>Chris</h2>
       <p text-center>
-        <ion-badge>
+        <ion-badge color="purple">
           <ion-icon name="star"> 4.4</ion-icon>
         </ion-badge>
       </p>
@@ -30,13 +30,19 @@
   <ion-card>
     <ion-item>
       <h2>Watchlist</h2>
-      <button ion-button icon-only item-end>
+      <button ion-button icon-only item-end (click)="editWatchlist();">
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="!watchlistCompleted; else completed_watchlist">
       <p>Please add some shows.</p>
     </ion-item>
+    <ng-template #completed_watchlist>
+      <ion-item no-lines>
+        <p>Game of Thrones</p>
+        <ion-badge color="purple">S1 E2</ion-badge>
+      </ion-item>
+    </ng-template>
   </ion-card>
   <ion-card>
     <ion-item>
@@ -45,8 +51,46 @@
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="!preferencesCompleted; else completed_preferences">
       <p>Please add your preferences.</p>
     </ion-item>
+    <ng-template #completed_preferences>
+      <ion-item no-lines>
+        <p>meals, snacks</p>
+        <ion-icon item-start name="restaurant"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>none</p>
+        <ion-icon item-start name="wine"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>10 mi</p>
+        <ion-icon item-start name="car"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>no</p>
+        <ion-icon item-start name="chatbubbles"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>no</p>
+        <ion-icon item-start name="phone-portrait"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>i will bring, they can't bring</p>
+        <ion-icon item-start name="people"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>-1 to 2 episodes</p>
+        <ion-icon item-start name="fastforward"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>0 - 2 hrs</p>
+        <ion-icon item-start name="timer"></ion-icon>
+      </ion-item>
+      <ion-item no-lines>
+        <p>evening</p>
+        <ion-icon item-start name="cloudy-night"></ion-icon>
+      </ion-item>
+    </ng-template>
   </ion-card>
 </ion-content>

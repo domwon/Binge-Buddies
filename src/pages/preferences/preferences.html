@@ -8,9 +8,6 @@
 
   <ion-navbar color="primary">
     <ion-title>Preferences</ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="savePreferences()">Save</button>
-    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -18,6 +15,9 @@
 
 <ion-content padding>
 
+  <ion-card padding>
+    <h2 text-center>Please check all that apply.</h2>
+  </ion-card>
   <ion-card>
     <ion-item no-lines padding>
         <h2>Food</h2>
@@ -42,13 +42,13 @@
           You
         </ion-col>
         <ion-col>
-          <ion-checkbox>Meals</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meFoodMeals"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meFoodSnacks"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meFoodNone"></ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -56,13 +56,13 @@
           Buddy
         </ion-col>
         <ion-col>
-          <ion-checkbox>Meals</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyFoodMeals"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyFoodSnacks"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyFoodNone"></ion-checkbox>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -92,13 +92,13 @@
           You
         </ion-col>
         <ion-col>
-          <ion-checkbox>Meals</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meDrinksAlc"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meDrinksReg"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meDrinksNone"></ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -106,13 +106,13 @@
           Buddy
         </ion-col>
         <ion-col>
-          <ion-checkbox>Meals</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyDrinksAlc"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyDrinksReg"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>Snacks</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyDrinksNone"></ion-checkbox>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -151,10 +151,10 @@
           You
         </ion-col>
         <ion-col>
-          <ion-checkbox>Yes</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meTalkingYes">Yes</ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>No</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meTalkingNo">No</ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -162,10 +162,10 @@
           Buddy
         </ion-col>
         <ion-col>
-          <ion-checkbox>Yes</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyTalkingYes">Yes</ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>No</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyTalkingNo">No</ion-checkbox>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -192,10 +192,10 @@
           You
         </ion-col>
         <ion-col>
-          <ion-checkbox>Yes</ion-checkbox>
+          <ion-checkbox [(ngModel)]="mePhoneYes">Yes</ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>No</ion-checkbox>
+          <ion-checkbox [(ngModel)]="mePhoneNo">No</ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -203,10 +203,10 @@
           Buddy
         </ion-col>
         <ion-col>
-          <ion-checkbox>Yes</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyPhoneYes">Yes</ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>No</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyPhoneNo">No</ion-checkbox>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -228,10 +228,10 @@
         </ion-row>
       <ion-row>
         <ion-col>
-          <ion-checkbox>Yes</ion-checkbox>
+          <ion-checkbox [(ngModel)]="meCanBring"></ion-checkbox>
         </ion-col>
         <ion-col>
-          <ion-checkbox>No</ion-checkbox>
+          <ion-checkbox [(ngModel)]="buddyCanBring"></ion-checkbox>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -276,7 +276,7 @@
           <p>Morning (6am - noon)</p>
         </ion-col>
         <ion-col>
-          <ion-checkbox></ion-checkbox>
+          <ion-checkbox [(ngModel)]="avaMorning"></ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -284,7 +284,7 @@
           <p>Afternoon (noon - 4pm)</p>
         </ion-col>
         <ion-col>
-          <ion-checkbox></ion-checkbox>
+          <ion-checkbox [(ngModel)]="avaAfternoon"></ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -292,7 +292,7 @@
           <p>Evening (4pm - 8pm)</p>
         </ion-col>
         <ion-col>
-          <ion-checkbox></ion-checkbox>
+          <ion-checkbox [(ngModel)]="avaEvening"></ion-checkbox>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -300,11 +300,13 @@
           <p>Night (8pm - 6am)</p>
         </ion-col>
         <ion-col>
-          <ion-checkbox></ion-checkbox>
+          <ion-checkbox [(ngModel)]="avaNight"></ion-checkbox>
         </ion-col>
       </ion-row>
       
     </ion-grid>
   </ion-card>
+
+  <button ion-button full (click)="savePreferences()">Save</button>
 
 </ion-content>

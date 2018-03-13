@@ -27991,6 +27991,25 @@ page-find ion-avatar img {
   max-height: 75px !important;
 }
 
+page-matched-profile ion-content {
+  text-align: center;
+}
+
+page-matched-profile .circle-pic {
+  border-radius: 100%;
+  width: 30%;
+  margin: 5vh auto 1vh auto;
+}
+
+page-matched-profile .good {
+  color: #34D1BF;
+  font-weight: 900;
+}
+
+page-messages .no-scroll .scroll-content {
+  overflow: hidden;
+}
+
 page-preferences ion-range {
   margin: -3vh auto auto auto;
 }
@@ -28003,4 +28022,8 @@ page-profile .circle-pic {
   border-radius: 100%;
   width: 30%;
   margin: 5vh auto 1vh auto;
+}
+
+page-watchlist .no-scroll .scroll-content {
+  overflow: hidden;
 }

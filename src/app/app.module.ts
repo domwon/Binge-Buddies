@@ -11,6 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PreferencesPage } from '../pages/preferences/preferences';
+import { MatchedProfilePage } from '../pages/matched-profile/matched-profile';
+import { WatchlistPage } from '../pages/watchlist/watchlist';
+import { MyShowsPage } from '../pages/my-shows/my-shows';
 
 
 @NgModule({
@@ -18,13 +21,19 @@ import { PreferencesPage } from '../pages/preferences/preferences';
     MyApp,
     FindPage,
     MessagesPage,
+    MatchedProfilePage,
+    WatchlistPage,
+    MyShowsPage,
     ProfilePage,
     PreferencesPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      // Tabs config
+      tabsHideOnSubPages: true,
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,6 +41,9 @@ import { PreferencesPage } from '../pages/preferences/preferences';
     FindPage,
     MessagesPage,
     PreferencesPage,
+    WatchlistPage,
+    MyShowsPage,
+    MatchedProfilePage,
     ProfilePage,
     TabsPage
   ],

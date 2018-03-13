@@ -6,6 +6,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { PreferencesPage } from '../pages/preferences/preferences';
 
+localStorage.setItem('profileCompleted', 'false');
+localStorage.setItem('watchlistCompleted', 'false');
+localStorage.setItem('preferencesCompleted', 'false');
+localStorage.setItem('gotAdded', 'false');
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,5 +23,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
   }
+
 }

@@ -1,0 +1,14 @@
+page-matched-profile {
+    ion-content {
+        text-align: center;
+    }
+    .circle-pic {
+        border-radius: 100%;
+        width: 30%;
+        margin: 5vh auto 1vh auto;
+    }
+    .good {
+        color: map-get($map: $colors, $key: secondary);
+        font-weight: 900;
+    }
+}

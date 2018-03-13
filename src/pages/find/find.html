@@ -14,70 +14,78 @@
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../assets/imgs/robert.jpg">
-      </ion-avatar>
-      <h2>Robert</h2>
-      <p class="good"><b>97%</b></p>
-      <ion-badge>
-        <ion-icon name="star"> 4.4</ion-icon>
-      </ion-badge>
-    </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../assets/imgs/jennifer.jpeg">
-      </ion-avatar>
-      <h2>Jennifer</h2>
-      <p class="ok"><b>89%</b></p>
-      <ion-badge>
-        <ion-icon name="star"> 4.8</ion-icon>
-      </ion-badge>
-    </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../assets/imgs/will.jpg">
-      </ion-avatar>
-      <h2>Will</h2>
-      <p class="ok"><b>85%</b></p>
-      <ion-badge>
-        <ion-icon name="star"> 4.3</ion-icon>
-      </ion-badge>
-    </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <h2 class="poor">Other Matches Below 80%</h2>
-      <ion-icon name="arrow-up" item-end></ion-icon>
-    </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../assets/imgs/tom.jpg">
-      </ion-avatar>
-      <h2>Tom</h2>
-      <p class="poor"><b>61%</b></p>
-      <ion-badge>
-        <ion-icon name="star"> 3.8</ion-icon>
-      </ion-badge>
-    </ion-item>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../assets/imgs/jessica.jpg">
-      </ion-avatar>
-      <h2>Jessica</h2>
-      <p class="poor"><b>55%</b></p>
-      <ion-badge>
-        <ion-icon name="star"> 4.2</ion-icon>
-      </ion-badge>
-    </ion-item>
-  </ion-card>
+  <div *ngIf="!profileCompleted; else completed_profile">
+    <br>
+    <h2 text-center>Profile Incomplete :(</h2>
+    <p text-center>Please complete your profile before finding buddies.</p>
+    <button ion-button full (click)="completeProfile()">Complete Profile</button>
+  </div>
+  <ng-template #completed_profile>
+    <ion-card (click)="openRobert()">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/robert.jpg">
+        </ion-avatar>
+        <h2>Robert</h2>
+        <p class="good"><b>97%</b></p>
+        <ion-badge color="purple">
+          <ion-icon name="star"> 4.4</ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/jennifer.jpeg">
+        </ion-avatar>
+        <h2>Jennifer</h2>
+        <p class="ok"><b>89%</b></p>
+        <ion-badge color="purple">
+          <ion-icon name="star"> 4.8</ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/will.jpg">
+        </ion-avatar>
+        <h2>Will</h2>
+        <p class="ok"><b>85%</b></p>
+        <ion-badge color="purple">
+          <ion-icon name="star"> 4.3</ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <h2 class="poor">Other Matches Below 80%</h2>
+        <ion-icon name="arrow-up" item-end></ion-icon>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/tom.jpg">
+        </ion-avatar>
+        <h2>Tom</h2>
+        <p class="poor"><b>61%</b></p>
+        <ion-badge color="purple">
+          <ion-icon name="star"> 3.8</ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/jessica.jpg">
+        </ion-avatar>
+        <h2>Jessica</h2>
+        <p class="poor"><b>55%</b></p>
+        <ion-badge color="purple">
+          <ion-icon name="star"> 4.2</ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-card>
+  </ng-template>
 </ion-content>

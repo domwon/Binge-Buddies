@@ -1,0 +1,82 @@
+<!--
+  Generated template for the MatchedProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Robert</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="addRobert()">
+            <ion-icon large name="person-add"></ion-icon>
+          </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+  
+<ion-content padding>
+  <ion-card>
+    <ion-avatar>
+      <img src="./assets/imgs/robert.jpg" class="circle-pic">
+    </ion-avatar>
+    <ion-item>
+        <h2 text-center>Robert Downey Jr</h2>
+        <p text-center class="good">97%</p>
+        <p text-center>
+          <ion-badge color="purple">
+            <ion-icon name="star"> 4.4</ion-icon>
+          </ion-badge>
+        </p>
+      </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <h2>Watchlist</h2>
+    </ion-item>
+    <ion-item no-lines>
+      <p>Game of Thrones</p>
+      <ion-badge color="secondary">S1 E2</ion-badge>
+    </ion-item>
+    <ion-item no-lines>
+      <p>Breaking Bad</p>
+      <ion-badge>S3 E1</ion-badge>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <h2>Matched Preferences</h2>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-icon color="secondary" item-start name="car"></ion-icon>
+      <ion-icon color="secondary" item-start name="chatbubbles"></ion-icon>
+      <ion-icon color="secondary" item-start name="people"></ion-icon>
+      <ion-icon color="secondary" item-start name="fastforward"></ion-icon>
+      <ion-icon color="secondary" item-start name="cloudy-night"></ion-icon>
+    </ion-item>
+    
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <h2>Potential Conflicts</h2>
+    </ion-item>
+    <ion-item no-lines>
+      <p>they don't like to eat meals</p>
+      <ion-icon color="primary" item-start name="restaurant"></ion-icon>
+    </ion-item>
+    <ion-item no-lines>
+      <p>they like to drink</p>
+      <ion-icon color="primary" item-start name="wine"></ion-icon>
+    </ion-item>
+    <ion-item no-lines>
+      <p>they tend to use their phone</p>
+      <ion-icon color="primary" item-start name="phone-portrait"></ion-icon>
+    </ion-item>
+    <ion-item no-lines>
+      <p>they watch 3 - 5 hrs</p>
+      <ion-icon color="primary" item-start name="timer"></ion-icon>
+    </ion-item>
+  </ion-card>
+</ion-content>
