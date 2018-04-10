@@ -27,10 +27,10 @@
       </p>
     </ion-item>
   </ion-card>
-  <ion-card>
+  <ion-card (click)="editWatchlist();">
     <ion-item>
       <h2>Watchlist</h2>
-      <button ion-button icon-only item-end (click)="editWatchlist();">
+      <button ion-button icon-only item-end>
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-item>
@@ -44,10 +44,10 @@
       </ion-item>
     </ng-template>
   </ion-card>
-  <ion-card>
+  <ion-card (click)="editPreferences();">
     <ion-item>
       <h2>Preferences</h2>
-      <button ion-button icon-only item-end (click)="editPreferences();">
+      <button ion-button icon-only item-end>
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-item>
